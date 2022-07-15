@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Hudson-Version: 2.303.1
+Plugin-Dependencies: pipeline-groovy-lib:589.vb_a_b_4a_a_8c443c,workfl
+ ow-cps:2.94,git-server:1.10
+Implementation-Title: Pipeline: Deprecated Groovy Libraries
+Long-Name: Pipeline: Deprecated Groovy Libraries
+Implementation-Version: 588.v576c103a_ff86
+Group-Id: org.jenkins-ci.plugins.workflow
+Minimum-Java-Version: 1.8
+Plugin-License-Name: MIT License
+Specification-Title: Pipeline: Deprecated Groovy Libraries
+Plugin-ScmUrl: https://github.com/jenkinsci/workflow-cps-global-lib-pl
+ ugin
+Plugin-Version: 588.v576c103a_ff86
+Jenkins-Version: 2.303.1
+Url: https://github.com/jenkinsci/workflow-cps-global-lib-plugin
+Short-Name: workflow-cps-global-lib
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-Developers: 
+Build-Jdk-Spec: 1.8
+Created-By: Maven Archiver 3.5.2
+Specification-Version: 0.0
+

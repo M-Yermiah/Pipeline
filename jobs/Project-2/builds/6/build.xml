@@ -1,0 +1,148 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@1207.ve6191ff089f8">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>yermiah</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="pipeline-groovy-lib@593.va_a_fc25d520e9">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+    <hudson.plugins.git.util.BuildData plugin="git@4.11.3">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/master</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@3.11.0">
+              <sha1>43bb8339d190f2505595aeb0b210bc0e945976dd</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/master</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>6</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/M-Yermiah/CI_CD.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState plugin="workflow-scm-step@400.v6b_89a_1317c9a_">
+      <revisionStates>
+        <entry>
+          <string>git https://github.com/M-Yermiah/CI_CD.git</string>
+          <hudson.scm.SCMRevisionState_-None/>
+        </entry>
+      </revisionStates>
+    </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+  </actions>
+  <queueId>95</queueId>
+  <timestamp>1657868430786</timestamp>
+  <startTime>1657868430790</startTime>
+  <result>SUCCESS</result>
+  <duration>8047</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>node(&apos;built-in&apos;)
+{
+stage(&apos;Continuous Download&apos;)
+{
+git &apos;https://github.com/M-Yermiah/CI_CD.git&apos;
+}
+stage(&apos;Continuous Build&apos;)
+{
+sh &apos;mvn package&apos;
+}
+
+stage(&apos;Continous Deployment&apos;) 
+{
+   sh &apos;scp /home/ubuntu/.jenkins/workspace/Project/webapp/target/webapp.war ubuntu@172.31.92.152:/var/lib/tomcat8/webapps/pipeline.war&apos;
+
+}    
+
+stage(&apos;Continuous Testing&apos;)
+{
+echo &apos; &quot;Testing Passed&quot;&apos;
+}
+    
+stage(&apos;Continous Delivery&apos;) 
+{
+   sh &apos;scp /home/ubuntu/.jenkins/workspace/Project/webapp/target/webapp.war ubuntu@172.31.93.17:/var/lib/tomcat8/webapps/pipelin1.war&apos;
+
+}
+
+    
+}</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="concurrent-hash-map">
+      <entry>
+        <string>flowNode</string>
+        <long>176688283</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>6342720</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>489645005</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>17911371</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>178117344</long>
+      </entry>
+    </timings>
+    <sandbox>true</sandbox>
+    <iota>32</iota>
+    <head>1:32</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList">
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@4.11.3">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/M-Yermiah/CI_CD.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>*/master</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.LocalBranch>
+            <localBranch>master</localBranch>
+          </hudson.plugins.git.extensions.impl.LocalBranch>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/home/ubuntu/.jenkins/workspace/Project-2</workspace>
+      <changelogFile>/home/ubuntu/.jenkins/jobs/Project-2/builds/6/changelog7556792087793203101.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+  </checkouts>
+</flow-build>

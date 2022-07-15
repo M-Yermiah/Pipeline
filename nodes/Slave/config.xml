@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<slave>
+  <name>Slave</name>
+  <description>Slave</description>
+  <remoteFS>/home/ubuntu/workspace</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.slaves.CommandLauncher" plugin="command-launcher@84.v4a_97f2027398">
+    <agentCommand>ssh ubuntu@172.31.85.149 java -jar slave.jar</agentCommand>
+  </launcher>
+  <label>Slave_lab</label>
+  <nodeProperties/>
+</slave>
